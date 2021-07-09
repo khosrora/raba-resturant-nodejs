@@ -148,7 +148,6 @@ exports.noSpecial = async (req, res) => {
 exports.getEditFood = async (req, res) => {
     try {
         const food = await Food.findById(req.params.id)
-        console.log(food)
         res.render("admin/editFood", {
             layout: "./layouts/dashLayouts",
             path: "/admin/createFood",
@@ -165,12 +164,10 @@ exports.getEditFood = async (req, res) => {
 
 exports.editFood = async (req, res) => {
     const image = req.files ? req.files.image : {};
-    console.log(image);
     const fileName = `${shortId.generate()}_${image.name}`;
     const uploadPath = `${appRoot}/public/uploads/images/foods/${fileName}`
 
     const foods = await Food.findById(req.params.id);
-    console.log(foods);
     try {
 
         if (image.name) {
@@ -181,7 +178,6 @@ exports.editFood = async (req, res) => {
             .toFile(uploadPath).catch(err => console.log(err))
 
         const { meal, name, price, detail, special } = req.body;
-        console.log(req.body);
 
         foods.meal = meal;
         foods.name = name;

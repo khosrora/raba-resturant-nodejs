@@ -234,8 +234,6 @@ exports.forgetPassword = async (req, res) => {
          <a href="${resetLink}"> لینک تغییر رمز عبور </a>
         ` )
 
-        console.log(resetLink);
-
         req.flash("success_msg", "پیام حاوی رمز عبور برای شما ارسال شد");
         res.render("forgetPass", {
             layout: "./layouts/mainLayouts",

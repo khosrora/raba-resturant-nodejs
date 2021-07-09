@@ -162,7 +162,6 @@ exports.OpinionUser = async (req, res) => {
             errors.push({
                 message: `لطفا ابتدا اطلاعات تکمیلی خود را کامل کنید`
             })
-            console.log(errors);
             return res.render("user/opinionUser", {
                 layout: "./layouts/mainLayouts",
                 path: "/user/opinionuser",
