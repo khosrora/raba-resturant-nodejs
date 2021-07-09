@@ -16,6 +16,7 @@ const { get500 } = require('./errorController');
 //* HELLPER
 const { jalaliMoment } = require('../helper/jalali');
 const { truncate } = require('../helper/truncate');
+const { sendEmail } = require('../utils/mailer');
 
 exports.index = async (req, res) => {
     try {
@@ -157,6 +158,9 @@ exports.reservationPage = async (req, res) => {
 
         //! SEND SMS
 
+        // SEND EMAIL
+        const { email } = req.body;
+        sendEmail(email, "پیام رزرو رستوران رابا", "درخواست رزرو شما ارسال شد به زودی همکاران ما با شما تماس خواهند گرفت")
 
         req.flash("success_msg", `عزیز درخواست شما ثبت شد ${req.body.fullname} `)
         res.redirect("/reservation");

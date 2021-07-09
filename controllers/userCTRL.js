@@ -14,6 +14,7 @@ const { get500 } = require('./errorController');
 
 //* HELLPER
 const { jalaliMoment } = require('../helper/jalali');
+const { sendEmail } = require('../utils/mailer');
 
 
 exports.homeDashboard = async (req, res) => {
@@ -91,7 +92,13 @@ exports.detailUser = async (req, res) => {
         await Personal.create({
             ...req.body, user: req.user.id, image: fileName
         })
-        res.redirect('/user/home');
+        // !sms send
+
+        // SEND EMAIL
+        sendEmail(req.body.email, "تایید اطلاعات شما", "آدرس شما با موفقیت ثبت شد")
+
+
+        res.redirect('/user/detailuser');
     } catch (err) {
         errors.push({
             message: err.message
@@ -107,6 +114,8 @@ exports.detailUser = async (req, res) => {
             errors,
             message: req.flash("success_msg")
         })
+
+
     }
 }
 
@@ -172,6 +181,9 @@ exports.OpinionUser = async (req, res) => {
         await Opinion.opinionValidate(req.body);
 
         // !sms send
+
+        // SEND EMAIL
+        sendEmail(req.body.email, "ارسال نظر برای رستوران رابا", "خیلی خوشحالیم که نظرتان را با ما در میان گذاشتید")
 
         await Opinion.create({
             ...req.body
@@ -262,10 +274,8 @@ exports.Verifypayment = async (req, res) => {
     try {
         const status = req.query.Status;
         const paymentCode = req.query.Authority;
-        const payment = await Card.findOne({ authority: paymentCode })
+        const payment = await Card.findOne({ authority: paymentCode }).populate("user")
 
-        // GET COOKIES
-        const itemsCard = req.cookies;
 
         if (status == "OK") {
             const response = await zarinpal.PaymentVerification({
@@ -279,9 +289,7 @@ exports.Verifypayment = async (req, res) => {
                 payment.status = true;
                 await payment.save();
 
-                // !SMS SEND
                 res.clearCookie("cartItems");
-                console.log(payment);
 
                 res.render("user/cardDetail", {
                     layout: "./layouts/mainLayouts",
@@ -294,6 +302,11 @@ exports.Verifypayment = async (req, res) => {
                     jalaliMoment,
                     message: req.flash("error_msg")
                 })
+
+                // !SMS SEND
+
+                // SEND EMAIL
+                sendEmail(payment.user.email, " سفارش از رستوران رابا", "مرسی که رستوران رابا را برای سفارش غذا انتخاب کردید.سفارش شما دریافت شد")
             }
         } else {
             res.redirect("/user/card")

@@ -7,6 +7,7 @@ const shortId = require('shortid');
 
 // ERROR SERVER
 const { get500 } = require('./errorController');
+const { sendEmail } = require('../utils/mailer');
 
 
 exports.loginPage = async (req, res) => {
@@ -85,6 +86,12 @@ exports.registerUser = async (req, res) => {
         req.flash("success_msg", "ثبت نام با موفقیت به اتمام رسید")
         res.redirect("/auth/login")
 
+        //! sms send
+        sendSms(phone, "ثبت نام شما در رستوران رابا با موفقیت صورت گرفت")
+
+        // SEND EMAIL
+        sendEmail(email, "خوش آمدید", "از حسن انتخاب شما متشکریم دوست عزیز")
+
     } catch (err) {
         errors.push({
             message: err.message
@@ -105,7 +112,6 @@ exports.registerUser = async (req, res) => {
 }
 
 exports.loginUser = async (req, res, next) => {
-    const errors = [];
     try {
         // get CAPTCHA
         if (!req.body["g-recaptcha-response"]) {
@@ -148,6 +154,10 @@ exports.loginUser = async (req, res, next) => {
             req.session.cookie.expire = null;
         }
 
+        // SEND EMAIL
+        sendEmail(email, "خوش آمدید", "خیلی خوش حالیم که دوباره برگشتید")
+
+
         // RECAPTCHA IS TRUE ?
         if (json.success) {
             passport.authenticate("local", {
@@ -156,6 +166,7 @@ exports.loginUser = async (req, res, next) => {
                 failureFlash: true
             })(req, res, next);
         }
+
 
     } catch (err) {
         req.flash("error", "ایرادی در سرور بوجود آمده است")
