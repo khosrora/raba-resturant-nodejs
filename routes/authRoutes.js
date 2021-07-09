@@ -30,15 +30,19 @@ router.post("/login", auth, authCTRL.loginUser)
 
 
 // ? DESC forget-paass
-// ? GET /register
-// router.get("/forget-password", isLogged, auth, authCTRL.getForgetPassword)
+// ? GET /forget-password
+router.get("/forget-password", isLogged, auth, authCTRL.getForgetPassword)
 
 // ? DESC forget-paass
-// ? post /register
-// router.post("/forget-password", isLogged, auth, authCTRL.forgetPassword)
+// ? post /forget-password
+router.post("/forget-password", isLogged, auth, authCTRL.forgetPassword)
 
+// ? DESC reset-paass
+// ? get /reset-password
+router.get("/reset-password/:token", isLogged, auth, authCTRL.getResetPassword)
 
-
-
+// ? DESC reset-paass
+// ? get /reset-password
+router.post("/reset-password/:id", isLogged, auth, authCTRL.ResetPassword)
 
 module.exports = router;

@@ -12,7 +12,7 @@ exports.getReservations = async (req, res) => {
     const postPerPage = 5;
     try {
         const numberOfPosts = await Reservation.find().countDocuments();
-        const reservations = await Reservation.find({ Confirmation: false }).skip((page - 1) * postPerPage).limit(postPerPage);
+        const reservations = await Reservation.find({ Confirmation: false }).sort({ createdAt: -1 }).skip((page - 1) * postPerPage).limit(postPerPage);
 
         res.render("admin/reservation", {
             layout: "./layouts/dashLayouts",

@@ -3,9 +3,9 @@
 
 
     <div class="container ">
-        <%- include("./includes/error.ejs") %>
-            <div class="auth login border p-5 text-right my-5 ftco-animate">
-                <form dir="rtl" id="formLogin" action="/auth/reset-password" method="POST">
+        <div class="auth login border p-5 text-right my-5 ftco-animate">
+            <%- include("./includes/message.ejs") %>
+                <form dir="rtl" id="formLogin" action="/auth/reset-password/<%= userId %>" method="POST">
                     <div class="mb-3">
                         <label for="passwordRegister" class="form-label">کلمه عبور</label>
                         <input type="password" name="password" class="form-control" id="passwordRegister">
@@ -18,7 +18,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary">بازیابی رمز عبور</button>
                 </form>
-            </div>
+        </div>
     </div>
 
 
