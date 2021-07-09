@@ -1,0 +1,39 @@
+<%- include("../includes/adminIncludes/HeaderSecure.ejs") %>
+    <%- include("../includes/adminIncludes/breadCrumb.ejs") %>
+
+        <!-- /.Main Page -->
+        <div class="mr-4">
+            <label for="">عکس کاربر</label>
+            <br>
+            <img src="/uploads/images/users/<%= opinion.image %>" alt="<%= opinion.fullname %>"
+                style="width: 100px; height: 100px;">
+            <br>
+            <label for="">نام و نام خانوادگی</label>
+            <p>
+                <%= opinion.fullname %>
+            </p>
+            <label for="">شماره تماس</label>
+            <p>
+                <%= opinion.phone %>
+            </p>
+            <label for="">انتقادات</label>
+            <p>
+                <%= opinion.opinion %>
+            </p>
+            <label for="">تاریخ ارسال </label>
+            <p>
+                <%= jalaliMoment(opinion.createdAt) %>
+            </p>
+            <% if(opinion.show===false) {%>
+                <a href="/admin/setShow/<%= opinion._id%>" type="button" class="btn btn-success text-white">در
+                    صفحه اصلی نمایش داده شود </a>
+                <%}else {%>
+                    <a href="/admin/setFalse/<%= opinion._id%>" type="button" class="btn btn-danger text-white">در
+                        صفحه اصلی نمایش داده نشود </a>
+                    <%}%>
+        </div>
+        <br>
+        <!-- /.Main Page -->
+        </div>
+        <!-- /.content-wrapper -->
+        <%- include("../includes/adminIncludes/FooterSecure.ejs") %>

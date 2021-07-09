@@ -1,0 +1,46 @@
+<%- include("../includes/adminIncludes/HeaderSecure.ejs") %>
+
+
+    <%- include("../includes/adminIncludes/breadCrumb.ejs") %>
+
+
+        <!-- /.Main Page -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">نام تگ</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <% if (tags.length> 0) {%>
+                    <% for(let tag of tags) {%>
+                        <tr>
+                            <th scope="row">
+                                <%= index++ %>
+                            </th>
+                            <td>
+                                <%= tag.tag %>
+                            </td>
+                            <td>
+                                <a href="/admin/deleteTag/<%= tag._id%>" type="button" class="btn btn-danger">حذف</a>
+                            </td>
+                        </tr>
+                        <%}%>
+                            <%}else { %>
+                                <div class="text-center">
+                                    <h3 class="mt-2">
+                                        در حال حاضر هیچ برچسبی ثبت نشده است
+                                    </h3>
+                                </div>
+                                <% } %>
+            </tbody>
+        </table>
+        <%- include("../includes/paginationAdmin.ejs") %>
+            <!-- /.Main Page -->
+            </div>
+            <!-- /.content-wrapper -->
+
+
+            <%- include("../includes/adminIncludes/FooterSecure.ejs") %>

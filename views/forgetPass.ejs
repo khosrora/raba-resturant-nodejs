@@ -1,0 +1,26 @@
+<%- include("./includes/header.ejs") %>
+
+
+
+    <div class="container ">
+        <%- include("./includes/error.ejs") %>
+            <div class="auth login border p-5 text-right my-5 ftco-animate">
+                <form dir="rtl" id="formLogin" action="/auth/forget-password" method="POST">
+                    <div class="div" dir="ltr">
+                        <%- include("./includes/message.ejs") %>
+                            <%- include("./includes/loginPageError.ejs") %>
+                    </div>
+                    <div class="mb-3">
+                        <label for="emailLogin" class="form-label">لطفا پست الکترونیک خود را وارد کنید</label>
+                        <input type="email" name="email" class="form-control form-control.error" id="emailLogin"
+                            aria-describedby="emailHelp">
+                        <span></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">بازیابی رمز عبور</button>
+                </form>
+            </div>
+    </div>
+
+    <div class="" style="height: 300px;"></div>
+
+    <%- include("./includes/footer.ejs") %>

@@ -1,0 +1,45 @@
+<%- include("../includes/adminIncludes/HeaderSecure.ejs") %>
+
+
+    <%- include("../includes/adminIncludes/breadCrumb.ejs") %>
+
+
+        <!-- /.Main Page -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">نام وعده غذایی</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <% if (meals.length> 0) {%>
+                    <% for(let meal of meals) {%>
+                        <tr>
+                            <th scope="row">
+                                <%= index++ %>
+                            </th>
+                            <td>
+                                <%= meal.name %>
+                            </td>
+                            <td>
+                                <a href="/admin/deletemeal/<%= meal._id%>" type="button" class="btn btn-danger">حذف</a>
+                            </td>
+                        </tr>
+                        <%}%>
+                            <%}else { %>
+                                <div class="text-center">
+                                    <h3 class="mt-2">
+                                        در حال حاضر هیچ وعده ی غذایی ثبت نشده است
+                                    </h3>
+                                </div>
+                                <% } %>
+            </tbody>
+        </table>
+        <!-- /.Main Page -->
+        </div>
+        <!-- /.content-wrapper -->
+
+
+        <%- include("../includes/adminIncludes/FooterSecure.ejs") %>

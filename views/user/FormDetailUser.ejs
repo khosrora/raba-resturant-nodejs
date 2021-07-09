@@ -1,0 +1,57 @@
+<%- include("../includes/header.ejs") %>
+
+    <div class="container my-5">
+        <div class="row text-right" dir="rtl">
+            <%- include("../includes/sidebarDashboard.ejs") %>
+                <div class="col-xs-12 col-md-9 ftco-animate">
+
+                    <h6> فرم اطلاعات تکمیلی</h6>
+                    <p>
+                        <%=user.fullname %> عزیز اطلاعات شما در اختیار ما کاملا محرمانه است.
+                            دریافت این اطلاعات صرفا جهت سهولت در سفارش و یا رزرو شما است.
+                    </p>
+                    <hr>
+                    <%- include("../includes/error.ejs") %>
+                    <form class="my-5" action="/user/detailuser" method="POST" enctype="multipart/form-data">
+                        <div class="text-right" dir="rtl">
+                                <div class="form-group">
+                                    <label for="">لطفا عکس خود را انتخاب کنید</label>
+                                    <input type="file" class="form-control" name="image" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="">آدرس</label>
+                                    <textarea type="text" name="address" class="form-control"
+                                        placeholder="زاهدان - دانشگاه 5 - درب چهارم - سمت راست" id="address"
+                                        resize="none"></textarea>
+                                </div>
+                                <div class="col-md-12 mt-3">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary py-3 px-5">ارسال کن</button>
+                                    </div>
+                                </div>
+                        </div>
+                    </form>
+                </div>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <div class="text-right">
+            <h6>صحبت مدیریت با شما دوست عزیز</h6>
+            <p class="ftco-animate">
+                رابا به عنوان یکی از قدیمی‌ترین رستوران های اینترنتی با بیش از یک دهه تجربه، با پایبندی به سه
+                اصل،
+                پرداخت در محل، ۷ روز ضمانت بازگشت کالا و تضمین اصل‌بودن کالا موفق شده تا همگام با فروشگاه‌های
+                معتبر
+                جهان، به
+                بزرگ‌ترین فروشگاه اینترنتی ایران تبدیل شود. به محض ورود به سایت رابا با دنیایی از غذا رو به رو
+                می‌شوید! هر آنچه که نیاز دارید و به ذهن شما خطور می‌کند در اینجا پیدا خواهید کرد
+            </p>
+            <span class="mr-2 ftco-animate">
+                <a href="/about"> درباره ما <i class="ion-ios-arrow-forward"></i> </a>
+            </span>
+        </div>
+    </div>
+
+
+    <%- include("../includes/footer.ejs") %>

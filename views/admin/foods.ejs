@@ -1,0 +1,54 @@
+<%- include("../includes/adminIncludes/HeaderSecure.ejs") %>
+
+
+    <%- include("../includes/adminIncludes/breadCrumb.ejs") %>
+
+
+        <!-- /.Main Page -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">نام غذا</th>
+                    <th scope="col">وعده غذایی</th>
+                    <th scope="col">عملیات ها</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (foods.length> 0) {%>
+                    <% for(let food of foods) {%>
+                        <tr>
+                            <th scope="row">
+                                <%= index++ %>
+                            </th>
+                            <td>
+                                <%= food.name %>
+                            </td>
+                            <td>
+                                <%= food.meal %>
+                            </td>
+                            <td class="text-white">
+                                <a href="/admin/detailfood/<%= food._id%>" type="button"
+                                    class="btn btn-warning text-white">اطلاعات</a>
+                                <a href="/admin/editFood/<%= food._id%>" type="button"
+                                    class="btn btn-secondary text-white">ویرایش</a>
+                                <a href="/admin/deletefood/<%= food._id%>" type="button" class="btn btn-danger">حذف</a>
+                            </td>
+                        </tr>
+                        <%}%>
+                            <%}else { %>
+                                <div class="text-center">
+                                    <h3 class="mt-2">
+                                        در حال حاضر هیچ غذایی ثبت نشده است
+                                    </h3>
+                                </div>
+                                <% } %>
+            </tbody>
+        </table>
+        <%- include("../includes/paginationAdmin.ejs") %>
+            <!-- /.Main Page -->
+            </div>
+            <!-- /.content-wrapper -->
+
+
+            <%- include("../includes/adminIncludes/FooterSecure.ejs") %>

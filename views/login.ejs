@@ -1,0 +1,51 @@
+<%- include("./includes/header.ejs") %>
+
+
+
+    <div class="container ">
+        <%- include("./includes/error.ejs") %>
+            <div class="auth login border p-5 text-right my-5 ftco-animate">
+                <form dir="rtl" id="formLogin" action="/auth/login" method="POST">
+                    <div class="div" dir="ltr">
+                        <%- include("./includes/message.ejs") %>
+                            <%- include("./includes/loginPageError.ejs") %>
+                    </div>
+                    <div class="mb-3">
+                        <label for="emailLogin" class="form-label">پست الکترونیک</label>
+                        <input type="email" name="email" class="form-control form-control.error" id="emailLogin"
+                            aria-describedby="emailHelp">
+                        <span></span>
+                    </div>
+                    <div class=" mb-3">
+                        <label for="passwordLogin" class="form-label">کلمه عبور</label>
+                        <input type="password" name="password" class="form-control" id="passwordLogin">
+                        <span></span>
+                        <p class="">
+                            اگر رمز عبور خود را فراموش کرید از
+                             <a href="/auth/forget-password">اینجا</a>
+                             اقدام کنید
+                         </p>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <label>
+                            <input name="remember" type="checkbox" value="remember-me" /> من را
+                            به خاطر بسپار
+                        </label>
+                    </div>
+                    <div class="form-g my-3">
+                        <div class="g-recaptcha" data-sitekey="6LcJumcbAAAAAN6AVdO8LPlYp2pHkzDIFeM7OCyS">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">ورود</button>
+                </form>
+
+                <p class="">
+                    در صورتی که هنوز ثبت نام نکرده اید از
+                    <a href="/auth/register">اینجا</a>
+                    اقدام کنید
+                </p>
+            </div>
+    </div>
+
+
+    <%- include("./includes/footer.ejs") %>

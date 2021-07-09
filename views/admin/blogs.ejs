@@ -1,0 +1,51 @@
+<%- include("../includes/adminIncludes/HeaderSecure.ejs") %>
+
+
+    <%- include("../includes/adminIncludes/breadCrumb.ejs") %>
+
+        <!-- /.Main Page -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">عنوان</th>
+                    <th scope="col">تاریخ</th>
+                    <th scope="col">عملیات ها</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (blogs.length> 0) {%>
+                    <% for(let blog of blogs) {%>
+                        <tr>
+                            <th scope="row">
+                                <%= index++ %>
+                            </th>
+                            <td>
+                                <%= blog.title %>
+                            </td>
+                            <td>
+                                <%= jalaliMoment(blog.createdAt) %>
+                            </td>
+                            <td class="text-white">
+                                <a href="/admin/detailblogs/<%= blog._id%>" type="button"
+                                    class="btn btn-warning text-white">اطلاعات</a>
+                                <a href="/admin/deleteblogs/<%= blog._id%>" type="button" class="btn btn-danger">حذف</a>
+                            </td>
+                        </tr>
+                        <%}%>
+                            <%}else { %>
+                                <div class="text-center">
+                                    <h3 class="mt-2">
+                                        در حال حاضر هیچ بلاگی ثبت نشده است
+                                    </h3>
+                                </div>
+                                <% } %>
+            </tbody>
+        </table>
+        <!-- /.Main Page -->
+        <%- include("../includes/paginationAdmin.ejs") %>
+            </div>
+            <!-- /.content-wrapper -->
+
+
+            <%- include("../includes/adminIncludes/FooterSecure.ejs") %>

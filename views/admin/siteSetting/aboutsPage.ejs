@@ -1,0 +1,48 @@
+<%- include("../../includes/adminIncludes/HeaderSecure.ejs") %>
+
+
+    <%- include("../../includes/adminIncludes/breadCrumb.ejs") %>
+
+
+        <!-- /.Main Page -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">عملیات ها</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (AboutPages.length> 0) {%>
+                    <% for(let AboutPage of AboutPages) {%>
+                        <tr>
+                            <th scope="row">
+                                <%= index++ %>
+                            </th>
+                            <td>
+                                صفحه درباره ما
+                            </td>
+                            <td class="text-white">
+                                <a href="/admin/setting/detailabout/<%= AboutPage._id%>" type="button"
+                                    class="btn btn-warning text-white">اطلاعات</a>
+                                <a href="/admin/setting/deleteabout/<%= AboutPage._id%>" type="button"
+                                    class="btn btn-danger">حذف</a>
+                            </td>
+                        </tr>
+                        <%}%>
+                            <%}else { %>
+                                <div class="text-center">
+                                    <h3 class="mt-2">
+                                        در حال حاضر هیچ صفحه ای ثبت نشده است
+                                    </h3>
+                                </div>
+                                <% } %>
+            </tbody>
+        </table>
+        <%- include("../../includes/paginationAdmin.ejs") %>
+            <!-- /.Main Page -->
+            </div>
+            <!-- /.content-wrapper -->
+
+
+            <%- include("../../includes/adminIncludes/FooterSecure.ejs") %>

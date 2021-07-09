@@ -1,0 +1,49 @@
+<%- include("../includes/header.ejs") %>
+
+
+
+    <div class="container my-5" dir="rtl">
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <div class="" id="displayCard">
+                    <%- include("../includes/message.ejs") %>
+                        <table class="table text-center">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">نام غذا</th>
+                                    <th scope="col">تعداد</th>
+                                    <th scope="col">جمع</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cart_items_wrapper">
+
+                            </tbody>
+                            <tr class="ftco-animate">
+                                <th scope="row"></th>
+                                <td>مبلغ کل</td>
+                                <td>
+
+                                </td>
+                                <td id="totalPrice">0</td>
+                            </tr>
+                        </table>
+                        <form action="/user/payment" method="POST" id="formCard">
+                            <div class="form-group text-right">
+                                <label for="">در صورت نیاز موارد خاص لازم به ذکر اینجا بفرمایید</label>
+                                <br>
+                                <textarea name="text" id="" cols="" rows="5" style="width: 100%;"></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary px-4 py-3 mt-3">پرداخت</button>
+                            </div>
+                        </form>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <img class="img-fluid" src="/images/bg_6.jpg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <%- include("../includes/footer.ejs") %>

@@ -1,0 +1,56 @@
+<%- include("../../includes/adminIncludes/HeaderSecure.ejs") %>
+
+    <%- include("../../includes/adminIncludes/breadCrumb.ejs") %>
+
+        <!-- /.Main Page -->
+        <div class="mr-4">
+            <label for="">عکس ها </label>
+            <br>
+            <img src="/uploads/images/settingSite/<%= detailabout.image1 %>" alt="عکس اول"
+                style="width: 100px; height: 100px;">
+            <img src="/uploads/images/settingSite/<%= detailabout.image2 %>" alt="عکس دوم"
+                style="width: 100px; height: 100px;">
+            <img src="/uploads/images/settingSite/<%= detailabout.image3 %>" alt="عکس دوم"
+                style="width: 100px; height: 100px;">
+            <br>
+            <label for="">متن اول</label>
+            <p>
+                <%= detailabout.text1 %>
+            </p>
+            <label for="">متن دوم</label>
+            <p>
+                <%- detailabout.text2 %>
+            </p>
+            <label for="">متن سوم</label>
+            <p>
+                <%- detailabout.text3 %>
+            </p>
+            <label for="">عنوان اول</label>
+            <p>
+                <%- detailabout.title1 %>
+            </p>
+            <label for="">عنوان دوم</label>
+            <p>
+                <%- detailabout.title2 %>
+            </p>
+            <label for="">عنوان سوم</label>
+            <p>
+                <%- detailabout.title3 %>
+            </p>
+  
+            <% if(detailabout.show===false) {%>
+                <a href="/admin/setting/setShowabout/<%= detailabout._id%>" type="button"
+                    class="btn btn-success text-white">در
+                    صفحه  نمایش داده شود </a>
+                <%}else {%>
+                    <a href="/admin/setting/setFalseabout/<%= detailabout._id%>" type="button"
+                        class="btn btn-danger text-white">در
+                        صفحه  نمایش داده نشود </a>
+                    <%}%>
+        </div>
+        <br>
+        <!-- /.Main Page -->
+        </div>
+        <!-- /.content-wrapper -->
+
+        <%- include("../../includes/adminIncludes/FooterSecure.ejs") %>

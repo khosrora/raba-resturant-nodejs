@@ -1,0 +1,26 @@
+<%- include("../includes/adminIncludes/HeaderSecure.ejs") %>
+
+<%- include("../includes/adminIncludes/breadCrumb.ejs") %>
+
+        <!-- /.Main Page -->
+        <div class="mr-4">
+            <label for="">عکس کاربر</label>
+            <br>
+            <img src="/uploads/images/users/<%= personalUser.image %>" alt="<%= personalUser.user.fullname %>"
+                style="width: 100px; height: 100px;">
+            <br>
+            <label for="">آدرس کاربر</label>
+            <p>
+                <%= personalUser.address %>
+            </p>
+            <label for="">اطلاعات عمومی کاربر</label>
+            <a href="/admin/detail-users/<%= personalUser.user._id%>" type="button"
+                class="btn btn-warning text-white">اطلاعات</a>
+
+        </div>
+        <br>
+        <!-- /.Main Page -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <%- include("../includes/adminIncludes/FooterSecure.ejs") %>

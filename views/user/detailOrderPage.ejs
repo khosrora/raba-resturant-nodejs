@@ -1,0 +1,51 @@
+<%- include("../includes/header.ejs") %>
+
+    <div class="container my-5">
+        <div class="row text-right" dir="rtl">
+            <%- include("../includes/sidebarDashboard.ejs") %>
+                <div class="col-xs-12 col-md-9 ftco-animate">
+                    <% for (let order of orders) {%>
+                        <div class="container border rounded my-3 p-3">
+                            <div class="row justify-content-around">
+                                <p>نام  :
+                                    <span>
+                                        <%=order.name%>
+                                    </span>
+                                </p>
+                                <p>تعداد  :
+                                    <span>
+                                        <%=order.number%>
+                                    </span>
+                                </p>
+                                <p>مجموع :
+                                    <span>
+                                        <%=order.total%>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                                <%}%>
+                </div>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <div class="text-right">
+            <h6>صحبت مدیریت با شما دوست عزیز</h6>
+            <p class="ftco-animate">
+                رابا به عنوان یکی از قدیمی‌ترین رستوران های اینترنتی با بیش از یک دهه تجربه، با پایبندی به سه
+                اصل،
+                پرداخت در محل، ۷ روز ضمانت بازگشت کالا و تضمین اصل‌بودن کالا موفق شده تا همگام با فروشگاه‌های
+                معتبر
+                جهان، به
+                بزرگ‌ترین فروشگاه اینترنتی ایران تبدیل شود. به محض ورود به سایت رابا با دنیایی از غذا رو به رو
+                می‌شوید! هر آنچه که نیاز دارید و به ذهن شما خطور می‌کند در اینجا پیدا خواهید کرد
+            </p>
+            <span class="mr-2 ftco-animate">
+                <a href="/about"> درباره ما <i class="ion-ios-arrow-forward"></i> </a>
+            </span>
+        </div>
+    </div>
+
+
+    <%- include("../includes/footer.ejs") %>

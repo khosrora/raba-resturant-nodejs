@@ -1,0 +1,316 @@
+<div class="wrapper">
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="/" class="nav-link">خانه</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="/auth/logout" class="nav-link">خروج</a>
+            </li>
+        </ul>
+
+        <!-- SEARCH FORM -->
+        <!-- search -->
+            <%- include("./search.ejs") %>
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <a href="/" class="brand-link">
+            <span class="brand-text font-weight-light">پنل مدیریت</span>
+            <span>
+                <%= fullname %>
+            </span>
+        </a>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div>
+                <!-- Sidebar user panel (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="https://picsum.photos/200" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block">Raba-Group</a>
+                    </div>
+                </div>
+
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+                 with font-awesome or any other icon font library -->
+                        <li class="nav-item has-treeview menu-open">
+                            <a href="#" class="nav-link ">
+                                <i class="fas fa-ellipsis-h"></i>
+                                <p>
+                                    صفحات
+                                    <i class="fas fa-caret-down"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin" class="nav-link ">
+                                        <i class="fas fa-home"></i>
+                                        <p>صفحه اول</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/admin/users" class="nav-link ">
+                                        <i class="fas fa-user-friends"></i>
+                                        <p>کاربران</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/admin/admins" class="nav-link ">
+                                        <i class="fas fa-users-cog"></i>
+                                        <p>مدیران</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/admin/peronalUsers" class="nav-link ">
+                                        <i class="fas fa-user-lock"></i>
+                                        <p>اطلاعات شخصی کاربران</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+                 with font-awesome or any other icon font library -->
+                        <li class="nav-item has-treeview menu-open">
+                            <a href="/admin/orders" class="nav-link ">
+                                <i class="fas fa-ellipsis-h"></i>
+                                <p>
+                                    سفارشات
+                                    <i class="fas fa-caret-down"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/orders" class="nav-link ">
+                                        <i class="far fa-folder"></i>
+                                        <p>همه ی سفارشات</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/admin/newOrders" class="nav-link ">
+                                        <i class="far fa-folder-open"></i>
+                                        <p>سفارشات جدید</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/admin/oldOrders" class="nav-link ">
+                                        <i class="far fa-folder-open"></i>
+                                        <p>سفارشات ارسال شده</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+                 with font-awesome or any other icon font library -->
+                        <li class="nav-item has-treeview menu-open">
+                            <a href="#" class="nav-link ">
+                                <i class="fas fa-ellipsis-h"></i>
+                                <p>
+                                    رزرو ها
+                                    <i class="fas fa-caret-down"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/reservations" class="nav-link ">
+                                        <i class="fas fa-chair"></i>
+                                        <p>رزرو های تایید نشده</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/admin/truereservations" class="nav-link ">
+                                        <i class="fas fa-couch"></i>
+                                        <p>رزرو های تایید شده</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+                 with font-awesome or any other icon font library -->
+                        <li class="nav-item has-treeview menu-open">
+                            <a href="#" class="nav-link ">
+                                <i class="fas fa-ellipsis-h"></i>
+                                <p>
+                                    انتقادات و پیشنهادات
+                                    <i class="fas fa-caret-down"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/opinion" class="nav-link ">
+                                        <i class="fas fa-envelope"></i>
+                                        <p>نظرات</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+                 with font-awesome or any other icon font library -->
+                        <li class="nav-item has-treeview menu-open">
+                            <a href="#" class="nav-link ">
+                                <i class="fas fa-ellipsis-h"></i>
+                                <p>
+                                    برچسب ها
+                                    <i class="fas fa-caret-down"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/tags" class="nav-link ">
+                                        <i class="fas fa-tag"></i>
+                                        <p>تمام برچسب ها</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/admin/getcreatetag" class="nav-link ">
+                                        <i class="fas fa-tags"></i>
+                                        <p>ساخت برچسب</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+                 with font-awesome or any other icon font library -->
+                        <li class="nav-item has-treeview menu-open">
+                            <a href="#" class="nav-link ">
+                                <i class="fas fa-ellipsis-h"></i>
+                                <p>
+                                    بلاگ ها
+                                    <i class="fas fa-caret-down"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/blogs" class="nav-link ">
+                                        <i class="fas fa-rss"></i>
+                                        <p>تمام بلاگ ها</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/admin/createBlogs" class="nav-link ">
+                                        <i class="fas fa-blog"></i>
+                                        <p>ساخت بلاگ</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+                 with font-awesome or any other icon font library -->
+                        <li class="nav-item has-treeview menu-open">
+                            <a href="#" class="nav-link ">
+                                <i class="fas fa-ellipsis-h"></i>
+                                <p>
+                                    منو
+                                    <i class="fas fa-caret-down"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/foods" class="nav-link ">
+                                        <i class="fas fa-utensils"></i>
+                                        <p>تمام غذا ها</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/admin/createFood" class="nav-link ">
+                                        <i class="fas fa-hamburger"></i>
+                                        <p>ایجاد غذا</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+             with font-awesome or any other icon font library -->
+                        <li class="nav-item has-treeview menu-open">
+                            <a href="#" class="nav-link ">
+                                <i class="fas fa-ellipsis-h"></i>
+                                <p>
+                                    صفحات سایت
+                                    <i class="fas fa-caret-down"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/setting/homeSliders" class="nav-link ">
+                                        <i class="far fa-images"></i>
+                                        <p>اسلایدر صفحه اول</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/admin/setting/slider" class="nav-link ">
+                                        <i class="far fa-image"></i>
+                                        <p>ایجاد اسلایدر</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/admin/setting/contactsPage" class="nav-link ">
+                                        <i class="far fa-id-badge"></i>
+                                        <p>صفحه ارتباط با ما</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/admin/setting/createcontact" class="nav-link ">
+                                        <i class="far fa-address-book"></i>
+                                        <p>ایجاد ارتباط با ما</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/admin/setting/aboutsPage" class="nav-link ">
+                                        <i class="fas fa-users"></i>
+                                        <p>ایجاد درباره ما</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/admin/setting/createabout" class="nav-link ">
+                                        <i class="fas fa-user-plus"></i>
+                                        <p>ایجاد درباره ما</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+        </div>
+        <!-- /.sidebar -->
+    </aside>

@@ -1,0 +1,48 @@
+<%- include("./includes/header.ejs") %>
+
+    <section class="ftco-section bg-light">
+        <div class="container">
+            <div class="row">
+                <% for (let blog of blogs ) {%>
+                    <div class="col-md-4 ftco-animate" dir="rtl">
+                        <div class="blog-entry">
+                            <a href="/blogsingle/<%= blog.id %>" class="block-20"
+                                style="background-image: url('uploads/images/blogs/<%= blog.image %>');">
+                            </a>
+                            <div class="text px-4 pt-3 pb-4 text-right">
+                                <div class="meta">
+                                    <div><a href="/blogsingle/<%= blog.id %>">
+                                            <%= blog.user.fullname %>
+                                        </a></div>
+                                    <div> <a href="/blogsingle/<%= blog.id %>">
+                                            <%= jalaliMoment(blog.createdAt)%>
+                                        </a></div>
+                                </div>
+                                <h3 class="heading"><a href="/blogsingle/<%= blog.id %>">
+                                        <%= truncate(blog.title , 30) %>
+                                    </a>
+                                </h3>
+                                <p class="clearfix">
+                                    <a href="/blogsingle/<%= blog.id %>" class="float-left read">بیشتر بخوانید</a>
+                                    <a href="/blogsingle/<%= blog.id %>" class="float-right meta-chat"><span
+                                            class="icon-eye"></span>
+                                        <%= blog.viewCount %>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <%}%>
+            </div>
+            <div class="row no-gutters my-5">
+                <div class="col text-center">
+                    <div class="block-27">
+                        <ul>
+                            <%- include("./includes/pagination.ejs") %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <%- include("./includes/footer.ejs") %>

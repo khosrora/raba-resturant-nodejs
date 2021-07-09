@@ -1,0 +1,82 @@
+<%- include("../includes/adminIncludes/HeaderSecure.ejs") %>
+
+    <%- include("../includes/adminIncludes/breadCrumb.ejs") %>
+
+        <!-- /.Main Page -->
+        <div class="mr-4">
+            <label for="">وضعیت پرداخت</label>
+            <% if (card.status) {%>
+                <span class="badge badge-success">پرداخت شده</span>
+                <%}else {%>
+                    <span class="badge badge-danger">پرداخت نشده</span>
+                    <%}%>
+                        <label for="">وضعیت ارسال</label>
+                        <% if (card.send) {%>
+                            <span class="badge badge-success">ارسال شده</span>
+                            <%}else {%>
+                                <span class="badge badge-danger">ارسال نشده</span>
+                                <%}%>
+                                    <br>
+                                    <label for="">جمع مبلغ</label>
+                                    <badge class="badge badge-success">
+                                        <%= card.totalPrice %> تومان
+                                    </badge>
+                                    <br>
+                                    <hr>
+                                    <label for="">جزئیات سفارش</label>
+                                    <p>
+                                        <%= card.text %>
+                                    </p>
+                                    <hr>
+                                    <label for="">سفارشات</label>
+                                    <% for (let order of card.order) {%>
+                                        <div class="container border rounded my-3 p-3">
+                                            <div class="row justify-content-around">
+                                                <p>نام :
+                                                    <span>
+                                                        <%=order.name%>
+                                                    </span>
+                                                </p>
+                                                <p>تعداد :
+                                                    <span>
+                                                        <%=order.number%>
+                                                    </span>
+                                                </p>
+                                                <p>مجموع :
+                                                    <span>
+                                                        <%=order.total%>
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <%}%>
+                                            <hr>
+                                            <label for="">نام سفارش دهنده</label>
+                                            <badge class="badge badge-secondary">
+                                                <%= card.user.fullname %>
+                                            </badge>
+                                            <label for="">شماره همراه سفارش دهنده</label>
+                                            <badge class="badge badge-secondary">
+                                                <%= card.user.phone %>
+                                            </badge>
+                                            <hr>
+                                            <label for="">آدرس سفارش دهنده</label>
+                                            <p>
+                                                <%= personal.address %>
+                                            </p>
+
+
+
+
+
+
+
+
+
+        </div>
+        <br>
+        <!-- /.Main Page -->
+        </div>
+        <!-- /.content-wrapper -->
+
+        <%- include("../includes/adminIncludes/FooterSecure.ejs") %>

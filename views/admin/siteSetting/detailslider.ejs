@@ -1,0 +1,34 @@
+<%- include("../../includes/adminIncludes/HeaderSecure.ejs") %>
+
+    <%- include("../../includes/adminIncludes/breadCrumb.ejs") %>
+
+        <!-- /.Main Page -->
+        <div class="mr-4">
+            <label for="">عکس اسلایدر</label>
+            <br>
+            <img src="/uploads/images/settingSite/<%= slider.image %>" alt="<%= slider.title %>"
+                style="width: 100px; height: 100px;">
+            <br>
+            <label for="">عنوان</label>
+            <p>
+                <%= slider.title %>
+            </p>
+            <label for="">متن اسلایدر</label>
+            <p>
+                <%- slider.text %>
+            </p>
+            <% if(slider.show===false) {%>
+                <a href="/admin/setting/setShow/<%= slider._id%>" type="button" class="btn btn-success text-white">در
+                    صفحه اصلی نمایش داده شود </a>
+                <%}else {%>
+                    <a href="/admin/setting/setFalse/<%= slider._id%>" type="button"
+                        class="btn btn-danger text-white">در
+                        صفحه اصلی نمایش داده نشود </a>
+                    <%}%>
+        </div>
+        <br>
+        <!-- /.Main Page -->
+        </div>
+        <!-- /.content-wrapper -->
+
+        <%- include("../../includes/adminIncludes/FooterSecure.ejs") %>

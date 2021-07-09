@@ -1,0 +1,387 @@
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+        <% if(auth) {%>
+            <a class="navbar-brand" href="/user/home">پنل کاربری </a>
+            <%}else {%>
+                <a class="navbar-brand" href="/">raba-resturant</a>
+                <%}%>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                        aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                        صفحات دیگر <span class="oi oi-menu"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="ftco-nav">
+                        <ul class="navbar-nav ml-auto">
+                            <% if(auth) {%>
+                                <li class="nav-item"><a href="/auth/logout" class="nav-link">خروج</a></li>
+                                <%}else {%>
+                                    <li class="nav-item"><a href="/auth/login" class="nav-link">ورود / ثبت نام</a></li>
+                                    <%}%>
+                                        <li class="nav-item"><a href="/blogs" class="nav-link">بلاگ ها</a></li>
+                                        <li class="nav-item"><a href="/menu" class="nav-link">منو</a></li>
+                                        <li class="nav-item"><a href="/" class="nav-link">خانه</a></li>
+                        </ul>
+                    </div>
+    </div>
+</nav>
+<!-- END nav -->
+
+<section class="home-slider js-fullheight owl-carousel bg-white">
+    <% for (let slider of sliders ) {%>
+        <div class="slider-item js-fullheight">
+            <div class="overlay"></div>
+            <div class="container-fluid p-0">
+                <div class="row d-md-flex no-gutters slider-text js-fullheight align-items-center justify-content-end"
+                    data-scrollax-parent="true">
+                    <div class="one-third order-md-last img js-fullheight"
+                        style="background-image:url('/uploads/images/settingSite/<%= slider.image %>');">
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="one-forth d-flex js-fullheight align-items-center ftco-animate text-right"
+                        data-scrollax=" properties: { translateY: '70%' }">
+                        <div class="text mt-md-5">
+                            <h1 class="mb-4">
+                                <%= slider.title %>
+                            </h1>
+                            <p>
+                                <%- slider.text %>
+                            </p>
+                            <p><a href="/reservation" class="btn btn-primary px-4 py-3 mt-3">همین الان میز تو رزرو
+                                    کن </a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%}%>
+</section>
+
+
+<section class="ftco-section ftco-wrap-about ftco-no-pb ftco-no-pt">
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-sm-5 img img-2 d-flex align-items-center justify-content-center justify-content-md-end"
+                style="background-image: url(images/about.jpg); position: relative"></div>
+            <div class="col-sm-7 wrap-about py-5 ftco-animate">
+                <div class="heading-section mt-5 mb-4">
+                    <div class="pl-lg-5 ml-md-5 text-center">
+                        <span class="subheading">About</span>
+                        <h2 class="mb-4"> !!!!یه رستوران خودتون خوش آمدید </h2>
+                    </div>
+                </div>
+                <div class="pl-lg-5 ml-md-5 text-right">
+                    <p>رابا ، اولین و بزرگ‌ترین سامانه سفارش آنلاین غذا است. رابا، علاوه
+                        بر سفارش غذا، خدمات سفارش آنلاین کیک و شیرینی و سوپرمارکت آنلاین را نیز ارائه می‌کند. در حال
+                        حاضر، بیش از ۱۳۵۰۰ رستوران دربیش از ۷۰ نقطه از کشور فعال هستند. شما با سفارش غذا از اسنپ فود
+                        به طیف وسیعی از رستوران‌ها، غذاها و بهترین برندها دسترسی خواهید داشت. با سفارش آنلاین غذا در
+                        تهران، اصفهان، مشهد، تبریز و دیگر نقاط ایران، راحتی و تنوع را تجربه کنید.
+                    </p>
+                    <h3 class="mt-5">غذاهای مخصوص ما</h3>
+                    <div class="thumb my-4 d-flex ">
+                        <% for (let special of specials) {%>
+                            <a href="#" class="thumb-menu pr-md-4 text-center ">
+                                <div class="img"
+                                    style="background-image: url('/uploads/images/foods/<%= special.image %>');"></div>
+                                <h4>
+                                    <%= special.name %>
+                                </h4>
+                            </a>
+                            <%}%>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_4.jpg);"
+    data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row d-md-flex align-items-center justify-content-center">
+            <div class="col-lg-10">
+                <div class="row d-md-flex align-items-center">
+                    <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+                        <div class="block-18">
+                            <div class="text">
+                                <strong class="number" data-number="<%= userLength %>">0</strong>
+                                <span>تعداد مشتری های ما</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+                        <div class="block-18">
+                            <div class="text">
+                                <strong class="number" data-number="<%= foodLength %>">0</strong>
+                                <span> تعداد تنوع غذایی ما</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+                        <div class="block-18">
+                            <div class="text">
+                                <strong class="number" data-number="3">0</strong>
+                                <span>سال هایی که با شما هستیم</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+                        <div class="block-18">
+                            <div class="text">
+                                <strong class="number" data-number="<%= cardLength %>">0</strong>
+                                <span>سفارش های رسیده</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-2">
+            <div class="col-md-7 text-center heading-section ftco-animate">
+                <span class="subheading">Specialties</span>
+                <h2 class="mb-4">منوی غذایی رستوران ما</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-4 menu-wrap">
+                <div class="heading-menu text-center ftco-animate">
+                    <h3>صبحانه</h3>
+                </div>
+                <% for (let breakfast of breakfasts ) {%>
+                    <div class="menus d-flex ftco-animate">
+                        <div class="menu-img img"
+                            style="background-image: url('/uploads/images/foods/<%= breakfast.image %>');"></div>
+                        <div class="text">
+                            <div class="d-flex ">
+                                <div class="one-half text-center">
+                                    <h3>
+                                        <%= breakfast.name %>
+                                    </h3>
+                                </div>
+                                <div class="one-forth">
+                                    <span class="price">
+                                        <%= breakfast.price %>
+                                    </span>
+                                </div>
+                            </div>
+                            <p>
+                                <%= breakfast.detail %>
+                            </p>
+                        </div>
+                    </div>
+                    <%}%>
+            </div>
+
+            <div class="col-md-6 col-lg-4 menu-wrap">
+                <div class="heading-menu text-center ftco-animate">
+                    <h3>ناهار</h3>
+                </div>
+                <% for (let lunch of lunchs ) {%>
+                    <div class="menus d-flex ftco-animate">
+                        <div class="menu-img img"
+                            style="background-image: url('/uploads/images/foods/<%= lunch.image %>');"></div>
+                        <div class="text">
+                            <div class="d-flex ">
+                                <div class="one-half text-center">
+                                    <h3>
+                                        <%= lunch.name %>
+                                    </h3>
+                                </div>
+                                <div class="one-forth">
+                                    <span class="price">
+                                        <%= lunch.price %>
+                                    </span>
+                                </div>
+                            </div>
+                            <p>
+                                <%= lunch.detail %>
+                            </p>
+                        </div>
+                    </div>
+                    <%}%>
+            </div>
+
+            <div class="col-md-6 col-lg-4 menu-wrap">
+                <div class="heading-menu text-center ftco-animate">
+                    <h3>شام</h3>
+                </div>
+                <% for (let dinner of dinners ) {%>
+                    <div class="menus d-flex ftco-animate">
+                        <div class="menu-img img"
+                            style="background-image: url('/uploads/images/foods/<%= dinner.image %>');"></div>
+                        <div class="text">
+                            <div class="d-flex ">
+                                <div class="one-half text-center">
+                                    <h3>
+                                        <%= dinner.name %>
+                                    </h3>
+                                </div>
+                                <div class="one-forth">
+                                    <span class="price">
+                                        <%= dinner.price %>
+                                    </span>
+                                </div>
+                            </div>
+                            <p>
+                                <%= dinner.detail %>
+                            </p>
+                        </div>
+                    </div>
+                    <%}%>
+            </div>
+
+            <!--  -->
+            <div class="col-md-6 col-lg-4 menu-wrap">
+                <div class="heading-menu text-center ftco-animate">
+                    <h3>نوشیدنی ها</h3>
+                </div>
+                <% for (let drink of drinks ) {%>
+                    <div class="menus d-flex ftco-animate">
+                        <div class="menu-img img"
+                            style="background-image: url('/uploads/images/foods/<%= drink.image %>');"></div>
+                        <div class="text">
+                            <div class="d-flex ">
+                                <div class="one-half text-center">
+                                    <h3>
+                                        <%= drink.name %>
+                                    </h3>
+                                </div>
+                                <div class="one-forth">
+                                    <span class="price">
+                                        <%= drink.price %>
+                                    </span>
+                                </div>
+                            </div>
+                            <p>
+                                <%= drink.detail %>
+                            </p>
+                        </div>
+                    </div>
+                    <%}%>
+            </div>
+
+            <div class="col-md-6 col-lg-4 menu-wrap">
+                <div class="heading-menu text-center ftco-animate">
+                    <h3>پیش غذا ها</h3>
+                </div>
+                <% for (let Appetizer of Appetizers ) {%>
+                    <div class="menus d-flex ftco-animate">
+                        <div class="menu-img img"
+                            style="background-image: url('/uploads/images/foods/<%= Appetizer.image %>');"></div>
+                        <div class="text">
+                            <div class="d-flex ">
+                                <div class="one-half text-center">
+                                    <h3>
+                                        <%= Appetizer.name %>
+                                    </h3>
+                                </div>
+                                <div class="one-forth">
+                                    <span class="price">
+                                        <%= Appetizer.price %>
+                                    </span>
+                                </div>
+                            </div>
+                            <p>
+                                <%= Appetizer.detail %>
+                            </p>
+                        </div>
+                    </div>
+                    <%}%>
+            </div>
+
+            <div class="col-md-6 col-lg-4 menu-wrap">
+                <div class="heading-menu text-center ftco-animate">
+                    <h3>بعد از غذا</h3>
+                </div>
+                <% for (let afterMeal of afterMeals ) {%>
+                    <div class="menus d-flex ftco-animate">
+                        <div class="menu-img img"
+                            style="background-image: url('/uploads/images/foods/<%= afterMeal.image %>');"></div>
+                        <div class="text">
+                            <div class="d-flex ">
+                                <div class="one-half text-center">
+                                    <h3>
+                                        <%= afterMeal.name %>
+                                    </h3>
+                                </div>
+                                <div class="one-forth">
+                                    <span class="price">
+                                        <%= afterMeal.price %>
+                                    </span>
+                                </div>
+                            </div>
+                            <p>
+                                <%= afterMeal.detail %>
+                            </p>
+                        </div>
+                    </div>
+                    <%}%>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="ftco-section testimony-section" style="background-image: url(images/bg_5.jpg);"
+    data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-2">
+            <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+                <span class="subheading">Testimony</span>
+                <h2 class="mb-4">نظر مشتری های عزیزمون</h2>
+            </div>
+        </div>
+        <div class="row ftco-animate justify-content-center">
+            <div class="col-md-7">
+                <div class="carousel-testimony owl-carousel ftco-owl">
+                    <% for (let opinion of opinions) {%>
+                        <div class="item">
+                            <div class="testimony-wrap text-center py-4 pb-5">
+                                <div class="user-img mb-4"
+                                    style="background-image: url('/uploads/images/users/<%= opinion.image %>')">
+                                    <span class="quote d-flex align-items-center justify-content-center">
+                                        <i class="icon-quote-left"></i>
+                                    </span>
+                                </div>
+                                <div class="text p-3">
+                                    <p class="mb-4">
+                                        <%= opinion.opinion %>
+                                    </p>
+                                    <p class="name">
+                                        <%= opinion.fullname %>
+                                    </p>
+                                    <span class="position">مشتری</span>
+                                </div>
+                            </div>
+                        </div>
+                        <%}%>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="ftco-section ftco-no-pt ftco-no-pb">
+    <div class="container">
+        <div class="row d-flex">
+            <div class="col-md-5 ftco-animate img img-2" style="background-image: url(images/bg_6.jpg);"></div>
+            <div class="col-md-7 ftco-animate makereservation p-4 p-md-5">
+                <div class="heading-section ftco-animate mb-5 text-right">
+                    <span class="subheading">Book a Table</span>
+                    <h2 class="mb-4">برای رزرو میز خودت از اینجا اقدام کن</h2>
+                </div>
+                <%- include("./includes/formReserv.ejs") %>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include("./includes/footer.ejs") %>

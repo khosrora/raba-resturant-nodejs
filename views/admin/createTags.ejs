@@ -1,0 +1,29 @@
+<%- include("../includes/adminIncludes/HeaderSecure.ejs") %>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">داشبورد مدیریت</h1>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+        <div class="mr-4 col-8">
+            <%- include("../includes/error.ejs") %>
+                <form action="/admin/createtag" method="post">
+                    <div class="form-group">
+                        <label for="">نام تگ</label>
+                        <input type="text" name="tag" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-outline-dark"> ثبت </button>
+                </form>
+        </div>
+    </div>
+    <!-- /.content-wrapper -->
+
+    <%- include("../includes/adminIncludes/FooterSecure.ejs") %>

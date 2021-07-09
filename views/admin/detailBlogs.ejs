@@ -1,0 +1,39 @@
+<%- include("../includes/adminIncludes/HeaderSecure.ejs") %>
+
+    <%- include("../includes/adminIncludes/breadCrumb.ejs") %>
+
+        <!-- /.Main Page -->
+        <div class="mr-4">
+            <label for="">عکس بلاگ</label>
+            <br>
+            <img src="/uploads/images/blogs/<%= deatilBlog.image %>" alt="<%= deatilBlog.user.fullname %>"
+                style="width: 100px; height: 100px;">
+            <br>
+            <label for="">عنوان</label>
+            <p>
+                <%= deatilBlog.title %>
+            </p>
+            <label for="">نظر نویسنده</label>
+            <p>
+                <%= deatilBlog.comment %>
+            </p>
+
+            <label for="">نویسنده</label>
+            <p>
+                <%= deatilBlog.user.fullname %>
+            </p>
+            <label for="">تاریخ نگارش</label>
+            <p>
+                <%= jalaliMoment(deatilBlog.createdAt) %>
+            </p>
+            <label for="">متن بلاگ</label>
+            <p>
+                <%- deatilBlog.text %>
+            </p>
+        </div>
+        <br>
+        <!-- /.Main Page -->
+        </div>
+        <!-- /.content-wrapper -->
+
+        <%- include("../includes/adminIncludes/FooterSecure.ejs") %>

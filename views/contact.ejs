@@ -1,0 +1,97 @@
+<%- include("./includes/header.ejs") %>
+
+    <% if (contact) {%>
+        <div class="container my-5">
+            <div class=" row text-right">
+                <div class="col-xs-12 col-md-6 ftco-animate">
+                    <img class="img-fluid " src="/uploads/images/settingSite/<%= contact.image %>" alt="">
+                </div>
+                <div class="col-xs-12 col-md-6 border p-3">
+                    <h3>راه های ارتباط با ما</h3>
+                    <span class="ftco-animate">
+                        <%= contact.text1 %>
+                    </span>
+
+                    <div class="my-5">
+                        <div class="my-4">
+                            <h6>آدرس</h6>
+                            <hr>
+                            <p class="ftco-animate">
+                                <%= contact.address1 %>
+                            </p>
+                            <p class="ftco-animate">
+                                <%= contact.address2 %>
+                            </p>
+                        </div>
+                        <div class="my-4">
+                            <h6>شماره های تماس</h6>
+                            <hr>
+                            <p class="ftco-animate">
+                                <%= contact.phone1 %>
+                            </p>
+                            <p class="ftco-animate">
+                                <%= contact.phone2 %>
+                            </p>
+                        </div>
+                        <div class="my-4">
+                            <h6>پست الکترونیک</h6>
+                            <hr>
+                            <p class="ftco-animate">
+                                <%= contact.email %>
+                            </p>
+                        </div>
+                        <div class="my-4">
+                            <h6>کد پستی</h6>
+                            <hr>
+                            <p class="ftco-animate">
+                                <%= contact.postalCode %>
+                            </p>
+                        </div>
+                        <ul class="ftco-footer-social list-unstyled text-center">
+                            <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container my-5">
+            <div class=" row text-right">
+                <div class="col-xs-12 col-md-6 border p-3">
+                    <h6>صحبت مدیریت با شما دوست عزیز</h6>
+                    <span class="ftco-animate">
+                        <%= contact.text2 %>
+                    </span>
+
+                    <div class="my-5">
+                        <div class="my-4">
+                            <h6> !!! بهتره بدونی </h6>
+                            <hr>
+                            <p class="ftco-animate">
+                                <%= contact.text3 %>
+                            </p>
+                        </div>
+                    </div>
+                    <ul class="ftco-footer-social list-unstyled text-center">
+                        <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-md-6 ftco-animate">
+                    <img class="img-fluid " src="/uploads/images/settingSite/<%= contact.image2 %>" alt="">
+                </div>
+            </div>
+        </div>
+        <%}else {%>
+            <div class="" style="height: 200px;"></div>
+            <div class="container text-center">
+                <h1>از پنل خود یک صفحه تماس با ما بسازید </h1>
+            </div>
+            <div class="" style="height: 200px;"></div>
+            <%}%>
+
+
+
+                <%- include("./includes/footer.ejs") %>

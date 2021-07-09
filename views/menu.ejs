@@ -1,0 +1,199 @@
+<%- include("./includes/header.ejs") %>
+
+
+
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5 pb-2">
+                <div class="col-md-7 text-center heading-section ftco-animate">
+                    <span class="subheading">Specialties</span>
+                    <h2 class="mb-4">لیست غذا ها</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 menu-wrap">
+                    <div class="heading-menu text-center ftco-animate">
+                        <h3>صبحانه</h3>
+                    </div>
+                    <% for (let breakfast of breakfasts ) {%>
+                        <div class="menus d-flex ftco-animate"
+                            onClick="addToCart('<%= breakfast.id %>' , '<%= breakfast.name %>' , '<%= breakfast.price %>')">
+                            <div class="menu-img img"
+                                style="background-image: url('/uploads/images/foods/<%= breakfast.image %>');"></div>
+                            <div class="text">
+                                <div class="d-flex ">
+                                    <div class="one-half text-center">
+                                        <h3>
+                                            <%= breakfast.name %>
+                                        </h3>
+                                    </div>
+                                    <div class="one-forth">
+                                        <span class="price" id="count">
+                                            <%= breakfast.price %>
+                                        </span>
+                                    </div>
+                                </div>
+                                <p>
+                                    <%= breakfast.detail %>
+                                </p>
+                            </div>
+                        </div>
+                        <%}%>
+                </div>
+
+                <div class="col-md-6 col-lg-4 menu-wrap">
+                    <div class="heading-menu text-center ftco-animate">
+                        <h3>ناهار</h3>
+                    </div>
+                    <% for (let lunch of lunchs ) {%>
+                        <div class="menus d-flex ftco-animate"
+                            onclick="addToCart('<%= lunch.id %>' , '<%= lunch.name %>' , '<%= lunch.price %>')">
+                            <div class="menu-img img"
+                                style="background-image: url('/uploads/images/foods/<%= lunch.image %>');"></div>
+                            <div class="text">
+                                <div class="d-flex ">
+                                    <div class="one-half text-center">
+                                        <h3>
+                                            <%= lunch.name %>
+                                        </h3>
+                                    </div>
+                                    <div class="one-forth">
+                                        <span class="price">
+                                            <%= lunch.price %>
+                                        </span>
+                                    </div>
+                                </div>
+                                <p>
+                                    <%= lunch.detail %>
+                                </p>
+                            </div>
+                        </div>
+                        <%}%>
+                </div>
+
+                <div class="col-md-6 col-lg-4 menu-wrap">
+                    <div class="heading-menu text-center ftco-animate">
+                        <h3>شام</h3>
+                    </div>
+                    <% for (let dinner of dinners ) {%>
+                        <div class="menus d-flex ftco-animate"
+                            onclick="addToCart('<%= dinner.id %>' , '<%= dinner.name %>' , '<%= dinner.price %>')">
+                            <div class="menu-img img"
+                                style="background-image: url('/uploads/images/foods/<%= dinner.image %>');"></div>
+                            <div class="text">
+                                <div class="d-flex ">
+                                    <div class="one-half text-center">
+                                        <h3>
+                                            <%= dinner.name %>
+                                        </h3>
+                                    </div>
+                                    <div class="one-forth">
+                                        <span class="price">
+                                            <%= dinner.price %>
+                                        </span>
+                                    </div>
+                                </div>
+                                <p>
+                                    <%= dinner.detail %>
+                                </p>
+                            </div>
+                        </div>
+                        <%}%>
+                </div>
+
+                <!--  -->
+                <div class="col-md-6 col-lg-4 menu-wrap">
+                    <div class="heading-menu text-center ftco-animate">
+                        <h3>نوشیدنی ها</h3>
+                    </div>
+                    <% for (let drink of drinks ) {%>
+                        <div class="menus d-flex ftco-animate"
+                            onclick="addToCart('<%= drink.id %>' , '<%= drink.name %>' , '<%= drink.price %>')">
+                            <div class="menu-img img"
+                                style="background-image: url('/uploads/images/foods/<%= drink.image %>');"></div>
+                            <div class="text">
+                                <div class="d-flex ">
+                                    <div class="one-half text-center">
+                                        <h3>
+                                            <%= drink.name %>
+                                        </h3>
+                                    </div>
+                                    <div class="one-forth">
+                                        <span class="price">
+                                            <%= drink.price %>
+                                        </span>
+                                    </div>
+                                </div>
+                                <p>
+                                    <%= drink.detail %>
+                                </p>
+                            </div>
+                        </div>
+                        <%}%>
+                </div>
+
+                <div class="col-md-6 col-lg-4 menu-wrap">
+                    <div class="heading-menu text-center ftco-animate">
+                        <h3>پیش غذا ها</h3>
+                    </div>
+                    <% for (let Appetizer of Appetizers ) {%>
+                        <div class="menus d-flex ftco-animate"
+                            onclick="addToCart('<%= Appetizer.id %>' , '<%= Appetizer.name %>' , '<%= Appetizer.price %>')">
+                            <div class="menu-img img"
+                                style="background-image: url('/uploads/images/foods/<%= Appetizer.image %>');"></div>
+                            <div class="text">
+                                <div class="d-flex ">
+                                    <div class="one-half text-center">
+                                        <h3>
+                                            <%= Appetizer.name %>
+                                        </h3>
+                                    </div>
+                                    <div class="one-forth">
+                                        <span class="price">
+                                            <%= Appetizer.price %>
+                                        </span>
+                                    </div>
+                                </div>
+                                <p>
+                                    <%= Appetizer.detail %>
+                                </p>
+                            </div>
+                        </div>
+                        <%}%>
+                </div>
+
+                <div class="col-md-6 col-lg-4 menu-wrap">
+                    <div class="heading-menu text-center ftco-animate">
+                        <h3>بعد از غذا </h3>
+                    </div>
+                    <% for (let afterMeal of afterMeals ) {%>
+                        <div class="menus d-flex ftco-animate"
+                            onclick="addToCart('<%= afterMeal.id %>' , '<%= afterMeal.name %>' , '<%= afterMeal.price %>')">
+                            <div class="menu-img img"
+                                style="background-image: url('/uploads/images/foods/<%= afterMeal.image %>');"></div>
+                            <div class="text">
+                                <div class="d-flex ">
+                                    <div class="one-half text-center">
+                                        <h3>
+                                            <%= afterMeal.name %>
+                                        </h3>
+                                    </div>
+                                    <div class="one-forth">
+                                        <span class="price">
+                                            <%= afterMeal.price %>
+                                        </span>
+                                    </div>
+                                </div>
+                                <p>
+                                    <%= afterMeal.detail %>
+                                </p>
+                            </div>
+                        </div>
+                        <%}%>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <%- include("./includes/footer.ejs") %>

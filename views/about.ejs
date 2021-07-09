@@ -1,0 +1,55 @@
+<%- include("./includes/header.ejs") %>
+
+    <% if (about) {%>
+        <div class="container-fluid my-5 text-center">
+            <img class=" img-fluid ftco-animate" src="/uploads/images/settingSite/<%= about.image1%>" alt="">
+            <div class="text container col-8 text-center my-3">
+                <h3 class="text-secondary ftco-animate">
+                    <%= about.title1 %>
+                </h3>
+                <div class="p-background ftco-animate">
+                    <p>
+                        <%= about.text1 %>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container my-5 " dir="rtl">
+            <div class="row text-right">
+                <div class="col-xs-12 col-md-6 ">
+                    <img class="img-fluid " src="/uploads/images/settingSite/<%= about.image2%>" alt=""
+                        style="height: 400px;">
+                    <div class="text-about-us my-3">
+                        <h3>
+                            <%= about.title2 %>
+                        </h3>
+                        <p class="p-background ftco-animate">
+                            <%= about.text2 %>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-6 ">
+                    <img class="img-fluid" src="/uploads/images/settingSite/<%= about.image3%>" alt=""
+                        style="height: 400px;">
+                    <div class="text-about-us my-3">
+                        <h3>
+                            <%= about.title3 %>
+                        </h3>
+                        <p class="p-background ftco-animate">
+                            <%= about.text3 %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%}else {%>
+            <div class="" style="height: 200px;"></div>
+            <div class="container text-center">
+                <h1>از پنل خود یک صفحه درباره ما بسازید </h1>
+            </div>
+            <div class="" style="height: 200px;"></div>
+            <%}%>
+
+
+                <%- include("./includes/footer.ejs") %>

@@ -1,0 +1,41 @@
+<%- include("../includes/adminIncludes/HeaderSecure.ejs") %>
+
+<%- include("../includes/adminIncludes/breadCrumb.ejs") %>
+
+        <!-- /.Main Page -->
+        <div class="mr-4">
+            <label for="">نام و نام خانوادگی</label>
+            <p>
+                <%= detailReserv.fullname %>
+            </p>
+            <label for="">پست الکترونیک</label>
+            <p>
+                <%= detailReserv.email %>
+            </p>
+            <label for="">شماره تماس</label>
+            <p>
+                <%= detailReserv.phone %>
+            </p>
+            <label for="">شماره تماس</label>
+            <p>
+                <%= detailReserv.phone %>
+            </p>
+            <label for="">زمان رزرو</label>
+            <p>
+                <%= detailReserv.time %>
+            </p>
+            <label for="">تعداد صندلی</label>
+            <p>
+                <%= detailReserv.number %>
+            </p>
+            <label for="">تاریخ ثبت نام</label>
+            <p>
+                <%= jalaliMoment(detailReserv.createdAt) %>
+            </p>
+        </div>
+        <br>
+        <!-- /.Main Page -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <%- include("../includes/adminIncludes/FooterSecure.ejs") %>

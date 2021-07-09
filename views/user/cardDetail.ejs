@@ -1,0 +1,33 @@
+<%- include("../includes/header.ejs") %>
+
+    <div class="container my-5" dir="rtl">
+        <div class="border">
+            <div class="text-center my-5">
+                <h6>امیدواریم از تجربه خودتون در رستوران ما راضی باشید</h6>
+                <img class="img-fluid" src="/images/delivery-icon.svg" style="width: 40%; height: 40%;" alt="">
+            </div>
+            <div class="text-center">
+                <p class="ftco-animate">وضعیت پرداخت : <span class="badge badge-success p-2">پرداخت شد</span></p>
+                <p class="ftco-animate">مبلغ پرداخت شده :
+                    <span class="">
+                        <%= payment.totalPrice %>
+                    </span>
+                </p>
+                <p class="ftco-animate">کد پیگیری :
+                    <span class="">
+                        <%= payment.trackingCode %>
+                    </span>
+                </p>
+                <p class="ftco-animate"> تاریخ پرداخت:
+                    <span class="">
+                        <%= jalaliMoment(payment.createdAt) %>
+                    </span>
+                </p>
+            </div>
+            <div class="text-center my-5 ftco-animate">
+                <p href="">شما همچنان میتوانید از <a href="/user/orderPage">اینجا</a> اطلاعات کامل سفارش خود را مشاهده کنید</p>
+            </div>
+        </div>
+    </div>
+
+    <%- include("../includes/footer.ejs") %>

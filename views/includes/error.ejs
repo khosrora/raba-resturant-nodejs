@@ -1,0 +1,8 @@
+<% if (typeof errors !=="undefined" ) {%>
+    <% errors.forEach(function (error) { %>
+        <!-- The actual snackbar -->
+        <p style="color: rgb(202, 29, 29);">
+            <%= error.message %>
+        </p>
+        <% })%>
+            <%}%>   

@@ -1,0 +1,49 @@
+<%- include("../includes/adminIncludes/HeaderSecure.ejs") %>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">داشبورد مدیریت</h1>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+        <div class="mr-4 col-8">
+            <%- include("../includes/error.ejs") %>
+                <form action="/admin/createBlogs" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="title">عنوان</label>
+                        <input type="text" class="form-control" name="title" id="title" />
+                    </div>
+                    <div class="form-group">
+                        <label for="image">لطفا عکس بلاگ را انتخاب کنید</label>
+                        <input type="file" class="form-control" name="image" />
+                    </div>
+                    <div class="form-group">
+                        <label for="comment">نظر نویسنده راجب بلاگ</label>
+                        <input type="text" class="form-control" name="comment" id="comment" />
+                    </div>
+                    <select name="tags" id="example" class="form-control my-3" multiple="multiple"
+                        style="display: none;">
+                        <% for (let tag of tags) {%>
+                            <option value="<%= tag.tag %>">
+                                <%= tag.tag %>
+                            </option>
+                            <%}%>
+                    </select>
+                    <div class="form-group">
+                        <label for="image">متن بلاگ</label>
+                        <textarea name="text" type="text" class="form-control" id="text"> </textarea>
+                    </div>
+                    <div class="form-group my-3">
+                        <button type="submit" class="btn btn-outline-dark"> ثبت </button>
+                    </div>
+                </form>
+        </div>
+    </div>
+    <!-- /.content-wrapper -->

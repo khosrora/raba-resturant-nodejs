@@ -1,0 +1,41 @@
+<%- include("../includes/adminIncludes/HeaderSecure.ejs") %>
+
+    <%- include("../includes/adminIncludes/breadCrumb.ejs") %>
+
+        <!-- /.Main Page -->
+        <div class="mr-4">
+            <label for="">عکس غذا</label>
+            <br>
+            <img src="/uploads/images/foods/<%= food.image %>" alt="<%= food.name %>"
+                style="width: 100px; height: 100px;">
+            <br>
+            <label for="">نام</label>
+            <p>
+                <%= food.name %>
+            </p>
+            <label for="">جزئیات</label>
+            <p>
+                <%= food.detail %>
+            </p>
+
+            <label for="">قیمت</label>
+            <p>
+                <%= food.price %>
+            </p>
+            <label for="">غذای ویژه</label>
+            <p>
+                <% if(food.special){%>
+                    <a href="/admin/setFalseSpecial/<%= food._id%>" type="button" class="btn btn-success text-white">
+                        غذای ویژه است</a>
+                    <%}else {%>
+                        <a href="/admin/setTrueSpecial/<%= food._id%>" type="button" class="btn btn-danger text-white">
+                            غذای ویژه نیست</a>
+                        <%}%>
+            </p>
+        </div>
+        <br>
+        <!-- /.Main Page -->
+        </div>
+        <!-- /.content-wrapper -->
+
+        <%- include("../includes/adminIncludes/FooterSecure.ejs") %>

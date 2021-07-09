@@ -1,0 +1,77 @@
+<%- include("./includes/header.ejs") %>
+
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 ftco-animate text-right">
+                    <p>
+                        <img src="/uploads/images/blogs/<%= blog.image %>" alt="" class="img-fluid">
+                    </p>
+                    <p>
+                        <%- blog.text %>
+                    </p>
+
+
+                    <div class="tag-widget post-tag-container mb-5 mt-5">
+                        <div class="tagcloud">
+                            <% for (let tag of blog.tags ) {%>
+                                <a href="#" class="tag-cloud-link">
+                                    <%= tag %>
+                                </a>
+                                <%}%>
+                        </div>
+                    </div>
+                </div> <!-- .col-md-8 -->
+
+                <div class="col-lg-4 sidebar ftco-animate">
+                    <div class="sidebar-box ftco-animate text-right">
+                        <h3>بلاگ های محبوب</h3>
+                        <% for (let suggest of suggests) {%>
+                            <div class="block-21 mb-4 d-flex">
+                                <a class="blog-img mr-4"
+                                    style="background-image: url('/uploads/images/blogs/<%= suggest.image %>');"></a>
+                                <div class="text">
+                                    <h3 class="heading"><a href="/blogsingle/<%= suggest.id %>">
+                                            <%= truncate( suggest.title , 30) %>
+                                        </a>
+                                    </h3>
+                                    <div class="meta">
+                                        <div dir="rtl">
+                                            <a href="#">
+                                                <%= jalaliMoment(suggest.createdAt) %>
+                                                    <span class="icon-calendar"></span>
+                                            </a>
+                                        </div>
+                                        <div><a href="#">
+                                                <%= suggest.user.fullname %> <span class="icon-person"></span>
+                                            </a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <%}%>
+                    </div>
+
+                    <div class="sidebar-box ftco-animate text-right ">
+                        <h3>تگ های مربوط</h3>
+                        <ul class="tagcloud m-0 p-0">
+                            <% for (let tag of blog.tags ) {%>
+                                <a href="#" class="tag-cloud-link">
+                                    <%= tag %>
+                                </a>
+                                <%}%>
+                        </ul>
+                    </div>
+                    <div class="sidebar-box ftco-animate text-right">
+                        <h3>
+                            : <%= blog.user.fullname %>
+                        </h3>
+                        <p>
+                            <%= blog.comment %>
+                        </p>
+                    </div>
+                </div><!-- END COL -->
+            </div>
+        </div>
+    </section>
+
+    <%- include("./includes/footer.ejs") %>

@@ -1,0 +1,69 @@
+<%- include("../../includes/adminIncludes/HeaderSecure.ejs") %>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">داشبورد مدیریت</h1>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+        <div class="mr-4 col-8">
+            <%- include("../../includes/error.ejs") %>
+                <form action="/admin/setting/createcontact" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="image">لطفا عکس اول را انتخاب کنید</label>
+                        <input type="file" class="form-control" name="image" id="image" />
+                    </div>
+                    <div class="form-group">
+                        <label for="image2">لطفا عکس دوم را انتخاب کنید</label>
+                        <input type="file" class="form-control" name="image2" id="image2" />
+                    </div>
+                    <div class="form-group">
+                        <label for="text1">متن اول</label>
+                        <textarea name="text1" type="text" class="form-control" id="text1"> </textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="text2">متن دوم</label>
+                        <textarea name="text2" type="text" class="form-control" id="text2"> </textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="text3">متن سوم</label>
+                        <textarea name="text3" type="text" class="form-control" id="text3"> </textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone1">شماره تماس اول</label>
+                        <input name="phone1" type="text" class="form-control" id="phone1" />
+                    </div>
+                    <div class="form-group">
+                        <label for="phone2">شماره تماس دوم</label>
+                        <input name="phone2" type="text" class="form-control" id="phone2" />
+                    </div>
+                    <div class="form-group">
+                        <label for="address1">آدرس اول</label>
+                        <input type="text" class="form-control" name="address1" id="address1" />
+                    </div>
+                    <div class="form-group">
+                        <label for="address2">آدرس دوم</label>
+                        <input type="text" class="form-control" name="address2" id="address2" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">پست الکترونیک</label>
+                        <input type="text" class="form-control" name="email" id="email" />
+                    </div>
+                    <div class="form-group">
+                        <label for="postalCode">کد پستی</label>
+                        <input type="text" class="form-control" name="postalCode" id="postalCode" />
+                    </div>
+                    <div class="form-group my-3">
+                        <button type="submit" class="btn btn-outline-dark"> ثبت </button>
+                    </div>
+                </form>
+        </div>
+    </div>
+    <!-- /.content-wrapper -->

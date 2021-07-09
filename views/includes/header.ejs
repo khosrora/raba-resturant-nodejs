@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light ftco-navbar-light-2"
+    id="ftco-navbar">
+    <div class="container">
+        <% if(auth) {%>
+            <a class="navbar-brand" href="/user/home">پنل کاربری </a>
+            <% if(path=="/menu" ){%>
+                <a href="/user/card"><span class="icon-shopping-basket"></span><span id="numberBasket">0</span></a>
+                <%}%>
+                    <%}else {%>
+                        <a class="navbar-brand" href="/">raba-resturant</a>
+                        <%}%>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                                صفحات دیگر <span class="oi oi-menu"></span>
+                            </button>
+
+                            <div class="collapse navbar-collapse" id="ftco-nav">
+                                <ul class="navbar-nav ml-auto">
+                                    <% if(auth) {%>
+                                        <li class="nav-item"><a href="/auth/logout" class="nav-link">خروج</a></li>
+                                        <%}else {%>
+                                            <li class="nav-item"><a href="/auth/login" class="nav-link">ورود / ثبت
+                                                    نام</a></li>
+                                            <%}%>
+                                                <li class="nav-item"><a href="/about" class="nav-link">درباره ما</a>
+                                                </li>
+                                                <li class="nav-item"><a href="/contact" class="nav-link">تماس با ما</a>
+                                                </li>
+                                                <li class="nav-item"><a href="/blogs" class="nav-link">بلاگ ها</a></li>
+                                                <li class="nav-item active"><a href="/menu" class="nav-link">منو</a>
+                                                </li>
+                                                <li class="nav-item"><a href="/reservation" class="nav-link">از اینجا
+                                                        رزرو
+                                                        کن</a></li>
+                                                <li class="nav-item"><a href="/" class="nav-link">خانه</a></li>
+
+                                </ul>
+                            </div>
+    </div>
+</nav>
+<!-- END nav -->
+
+<section class="hero-wrap hero-wrap-2" style="background-image: url('/images/bg_4.jpg');"
+    data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <h1 class="mb-2 bread">
+                    <%= headerTitle %>
+                </h1>
+                <p class="breadcrumbs">
+                    <span class="mr-2"><a href="/"> <i class="ion-ios-arrow-back"></i> برگشت به
+                            خانه</a></span>
+                    <br>
+                    <span>
+                        <%= breadCrumb %> <i class="ion-ios-arrow-down"> </i>
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

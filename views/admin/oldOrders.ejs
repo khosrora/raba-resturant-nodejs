@@ -1,0 +1,63 @@
+<%- include("../includes/adminIncludes/HeaderSecure.ejs") %>
+
+
+    <%- include("../includes/adminIncludes/breadCrumb.ejs") %>
+
+
+        <!-- /.Main Page -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">کد پیگیری</th>
+                    <th scope="col">سفارش دهنده</th>
+                    <th scope="col">فعالیت </th>
+                    <th scope="col">عملیات ها</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (cards.length> 0) {%>
+                    <% for(let card of cards) {%>
+                        <tr>
+                            <th scope="row">
+                                <%= index++ %>
+                            </th>
+                            <td>
+                                <%= card.trackingCode %>
+                            </td>
+                            <td>
+                                <%= card.user.fullname %>
+                            </td>
+                            <% if (card.status) {%>
+                                <td><span class="badge badge-success">پرداخت شده</span></td>
+                                <%}else {%>
+                                    <td><span class="badge badge-danger">پرداخت نشده</span></td>
+                                    <%}%>
+                                        <td class="text-white">
+                                            <a href="/admin/detailorders/<%= card._id%>" type="button"
+                                                class="btn btn-warning text-white">اطلاعات</a>
+                                            <a href="/admin/notSee/<%= card._id%>" type="button"
+                                                class="btn btn-dark text-white"> مشاهده نشود</a>
+                                            <% if (card.status===true) {%>
+                                                <a href="/admin/sendFalse/<%= card._id%>" type="button"
+                                                    class="btn btn-danger text-white">ارسال نشد</a>
+                                                <%}%>
+                                        </td>
+                        </tr>
+                        <%}%>
+                            <%}else { %>
+                                <div class="text-center">
+                                    <h3 class="mt-2">
+                                        در حال حاضر هیچ سفارشی ثبت نشده است
+                                    </h3>
+                                </div>
+                                <% } %>
+            </tbody>
+        </table>
+        <%- include("../includes/paginationAdmin.ejs") %>
+            <!-- /.Main Page -->
+            </div>
+            <!-- /.content-wrapper -->
+
+
+            <%- include("../includes/adminIncludes/FooterSecure.ejs") %>

@@ -1,0 +1,43 @@
+<%- include("./includes/header.ejs") %>
+
+    <div class="container">
+        <div class="auth login border p-5 text-right my-5 ftco-animate">
+            <form dir="rtl" id="formRegister" action="/auth/register" method="POST">
+                <%- include("./includes/error.ejs") %>
+                    <div class="mb-3">
+                        <label for="fullnameRegister" class="form-label">نام و نام خانوادگی</label>
+                        <input type="text" name="fullname" class="form-control" id="fullnameRegister">
+                        <span></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="emailRegister" class="form-label">پست الکترونیک</label>
+                        <input type="email" name="email" class="form-control" id="emailRegister">
+                        <span></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phoneRegister" class="form-label">شماره تماس</label>
+                        <input type="text" name="phone" class="form-control" id="phoneRegister">
+                        <span></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="passwordRegister" class="form-label">کلمه عبور</label>
+                        <badge onclick="showHide()"><i class="icon-eye see_password"></i></badge>
+                        <input type="password" name="password" class="form-control" id="passwordRegister">
+                        <span></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="passwordConfirmRegister" class="form-label">تایید کلمه عبور </label>
+                        <input type="password" name="confirmPassword" class="form-control" id="passwordConfirmRegister">
+                        <span></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">ثبت نام</button>
+            </form>
+            <p class="mt-5">
+                اگر ثبت نام کردید برای ورود از
+                <a href="/auth/login">اینجا</a>
+                اقدام کنید
+            </p>
+        </div>
+    </div>
+
+    <%- include("./includes/footer.ejs") %>

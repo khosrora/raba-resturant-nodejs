@@ -1,0 +1,25 @@
+<%- include("./includes/header.ejs") %>
+
+
+
+    <div class="container ">
+        <%- include("./includes/error.ejs") %>
+            <div class="auth login border p-5 text-right my-5 ftco-animate">
+                <form dir="rtl" id="formLogin" action="/auth/reset-password" method="POST">
+                    <div class="mb-3">
+                        <label for="passwordRegister" class="form-label">کلمه عبور</label>
+                        <input type="password" name="password" class="form-control" id="passwordRegister">
+                        <span></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="passwordConfirmRegister" class="form-label">تایید کلمه عبور </label>
+                        <input type="password" name="confirmPassword" class="form-control" id="passwordConfirmRegister">
+                        <span></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">بازیابی رمز عبور</button>
+                </form>
+            </div>
+    </div>
+
+
+    <%- include("./includes/footer.ejs") %>

@@ -1,0 +1,53 @@
+<%- include("../includes/adminIncludes/HeaderSecure.ejs") %>
+
+
+    <%- include("../includes/adminIncludes/breadCrumb.ejs") %>
+
+
+        <!-- /.Main Page -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">نام کاربری</th>
+                    <th scope="col">شماره تماس</th>
+                    <th scope="col">عملیات</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (opinions.length> 0) {%>
+                    <% for(let opinion of opinions) {%>
+                        <tr>
+                            <th scope="row">
+                                <%= index++ %>
+                            </th>
+                            <td>
+                                <%= opinion.fullname %>
+                            </td>
+                            <td>
+                                <%= opinion.phone %>
+                            </td>
+                            <td class="text-white">
+                                <a href="/admin/detailOpinionPage/<%= opinion._id%>" type="button"
+                                    class="btn btn-warning text-white">اطلاعات</a>
+                                <a href="/admin/deleteopinion/<%= opinion._id%>" type="button"
+                                    class="btn btn-danger">حذف</a>
+                            </td>
+                        </tr>
+                        <%}%>
+                            <%}else { %>
+                                <div class="text-center">
+                                    <h3 class="mt-2">
+                                        در حال حاضر هیچ کاربری نظر ثبت نکرده است
+                                    </h3>
+                                </div>
+                                <% } %>
+            </tbody>
+        </table>
+        <%- include("../includes/paginationAdmin.ejs") %>
+            <!-- /.Main Page -->
+            </div>
+            <!-- /.content-wrapper -->
+
+
+            <%- include("../includes/adminIncludes/FooterSecure.ejs") %>
